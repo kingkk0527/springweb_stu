@@ -1,4 +1,4 @@
-package com.kk;
+package kk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
