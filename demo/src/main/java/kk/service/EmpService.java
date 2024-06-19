@@ -6,5 +6,5 @@ package kk.service;
  */
 
 //员工业务规则
-public interface EMpService {
+public interface EmpService {
 }

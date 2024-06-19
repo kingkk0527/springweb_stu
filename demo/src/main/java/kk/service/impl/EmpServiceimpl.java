@@ -1,6 +1,6 @@
 package kk.service.impl;
 
-import kk.service.DeptService;
+import kk.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -11,5 +11,5 @@ import org.springframework.stereotype.Service;
 //员工业务实现类
 @Slf4j
 @Service
-public class EmpServiceimpl implements DeptService {
+public class EmpServiceimpl implements EmpService {
 }
