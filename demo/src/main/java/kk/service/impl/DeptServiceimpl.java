@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -24,6 +25,7 @@ public class DeptServiceimpl implements DeptService {
      */
     @Override
     public List<Dept> list() {
+        // 调用mapper
         return deptmapper.list();
     }
 
@@ -33,5 +35,34 @@ public class DeptServiceimpl implements DeptService {
     @Override
     public void delete(Integer id) {
         deptmapper.deleteById(id);
+    }
+
+    @Override
+    public void add(Dept dept) {
+        dept.setCreateTime(LocalDateTime.now());
+        dept.setUpdateTime(LocalDateTime.now());
+        // 调用mapper
+        deptmapper.insert(dept);
+    }
+    @Override
+    public Dept getById(Integer id) {
+        // 调用mapper、
+        return deptmapper.getById(id);
+    }
+
+    @Override
+//    public void update(Integer id, String name) {
+//        // 调用mapper、
+////        Dept dept = deptmapper.getById(id);
+////        dept.setName(name);
+////        dept.setUpdateTime(LocalDateTime.now());
+////        deptmapper.update(dept);
+//        deptmapper.update(id,name);
+//
+//    }
+    public void update(Dept dept) {
+
+        deptmapper.update(dept);
+
     }
 }

@@ -22,4 +22,20 @@ public interface DeptService {
      * 删除部门
      */
     void delete(Integer id);
+    /**
+     * 新增部门
+     */
+    void add(Dept dept);
+    /**
+     * 根据id查询部门数据
+     */
+    Dept getById(Integer id);
+    /**
+     * 修改部门
+     */
+    void update(Dept dept);
+//    void update(Integer id,String name);
+
+
+
 }
