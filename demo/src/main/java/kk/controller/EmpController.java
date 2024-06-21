@@ -27,5 +27,6 @@ public class EmpController {
         // 调用service分页查询
         PageBean pageBean = empService.page(page,pageSize);
         return Result.success(pageBean);
+
     }
 }
