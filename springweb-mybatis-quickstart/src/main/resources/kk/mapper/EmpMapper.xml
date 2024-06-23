@@ -65,6 +65,7 @@
     </select>
     <delete id="deleteByIds">
         delete from emp where id in
+#                      遍历目标         遍历元素   连接符号    间隔符号     结束符号
         <foreach collection="ids" item="id" separator="," open="(" close=")">
             #{id}
         </foreach>

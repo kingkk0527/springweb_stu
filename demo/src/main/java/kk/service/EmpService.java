@@ -1,6 +1,10 @@
 package kk.service;
 
+import kk.pojo.Emp;
 import kk.pojo.PageBean;
+
+import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @ DeptService :
@@ -11,9 +15,23 @@ import kk.pojo.PageBean;
 public interface EmpService {
     /**
      * 分页查询
-     * @param page      第几页
-     * @param pageSize  每页数量
-     * @return          分页查询结果封装类
+     *
+     * @param page     第几页
+     * @param pageSize 每页数量
+     * @return 分页查询结果封装类
      */
-    public PageBean page(Integer page, Integer pageSize);
+    public PageBean page(Integer page, Integer pageSize,
+                         String name, Short gender, LocalDate begin, LocalDate end);
+
+    /**
+     * 批量删除操作
+     * @param ids id list
+     */
+    void delete(List<Integer> ids);
+    /**
+     *              插入员工
+     * @param emp   员工类
+     * @return      成功信息
+     */
+    void insert(Emp emp);
 }
