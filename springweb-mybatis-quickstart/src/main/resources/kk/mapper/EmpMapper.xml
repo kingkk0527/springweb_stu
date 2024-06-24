@@ -16,7 +16,8 @@
 <!--    # 动态更新-->
     <update id="update2">
         update emp
-#         去多余 ,
+        <!--     去多余 , -->
+
         <set>
             <if test="username != null">
                 username=#{username},

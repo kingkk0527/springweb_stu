@@ -1,0 +1,43 @@
+spring:
+  # 数据库配置四要素 驱动类 url 用户名 密码
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springweb
+    username: root
+    password: 123456
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 10MB       # 配置单个文件上传大小
+      max-request-size: 100MB   # 配置单个请求上传大小
+
+#mybatis配置
+mybatis:
+  configuration:
+    #配置mybatis的日志, 指定输出到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #开启mybatis的驼峰命名自动映射开关 a_column ------> aCloumn
+    map-underscore-to-camel-case: true
+
+# 阿里云oss配置
+aliyun:
+  oss:
+    endpoint: https://oss-cn-chengdu.aliyuncs.com
+    accessKeyId: LTAI5tNoN9Qr1zQRohPbc1X6
+    accessKeySecret: A0euNO8UfUTLwTWXbOTCB6vwIqLD5S
+    bucketName: springweb-testkk
+
+# 端口配置
+server:
+  port: 8888
+# 对象、Map集合
+emp:
+  name: zhangsan
+  age: 18
+  password: 1234
+# 数组、List、Set集合
+hobby:
+  -java
+  -game
+  -sport
+

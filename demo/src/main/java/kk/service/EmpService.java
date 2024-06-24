@@ -20,7 +20,7 @@ public interface EmpService {
      * @param pageSize 每页数量
      * @return 分页查询结果封装类
      */
-    public PageBean page(Integer page, Integer pageSize,
+    PageBean page(Integer page, Integer pageSize,
                          String name, Short gender, LocalDate begin, LocalDate end);
 
     /**
@@ -34,4 +34,15 @@ public interface EmpService {
      * @return      成功信息
      */
     void insert(Emp emp);
+    /**
+     * 根据id查询员工信息
+     * @param id id
+     * @return   员工信息
+     */
+    Emp getById(Integer id);
+    /**
+     * 更新员工信息
+     * @param emp  更新员工信息
+     */
+    void update(Emp emp);
 }
