@@ -45,4 +45,11 @@ public interface EmpService {
      * @param emp  更新员工信息
      */
     void update(Emp emp);
+    /**
+     * 登录
+     * @param emp   用户名密码
+     * @return      查询员工信息
+     */
+
+    Emp login(Emp emp);
 }

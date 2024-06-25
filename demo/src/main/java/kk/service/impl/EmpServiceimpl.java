@@ -89,4 +89,15 @@ public class EmpServiceimpl implements EmpService {
         emp.setUpdateTime(LocalDateTime.now());
         empMapper.update(emp);
     }
+    /**
+     * 登录
+     * @param emp   用户名密码
+     * @return      查询员工信息
+     */
+
+    @Override
+    public Emp login(Emp emp) {
+
+        return empMapper.getByUsernameAndPassword(emp);
+    }
 }
