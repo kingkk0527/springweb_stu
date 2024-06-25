@@ -15,6 +15,7 @@ class DemoApplicationTests {
 	void testGenJwt() {
 		// 中间填充载荷内容
 		Map<String , Object> claims = new HashMap<>();
+
 		claims.put("id",1);
 		claims.put("name","kk");
 
