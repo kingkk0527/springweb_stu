@@ -1,5 +1,6 @@
 package kk.controller;
 
+import kk.mapper.EmpMapper;
 import kk.pojo.Dept;
 import kk.pojo.Result;
 import kk.service.DeptService;
@@ -21,6 +22,8 @@ public class DeptController {
 
     @Autowired
     private DeptService deptService;
+    @Autowired
+    private EmpMapper empMapper;
 //    @RequestMapping(value = "/depts",method = RequestMethod.GET)
 
     /**
@@ -40,6 +43,8 @@ public class DeptController {
         log.info("根据id删除部门:{}", id);
         // 调用service
         deptService.delete(id);
+        // 删除员工
+        empMapper.deleteByDeptId(id);
         return Result.success();
     }
     @PostMapping

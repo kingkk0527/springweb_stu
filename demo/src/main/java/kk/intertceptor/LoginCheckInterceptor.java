@@ -1,30 +1,29 @@
-package kk.Filter;
+package kk.intertceptor;
 
 import com.alibaba.fastjson.JSONObject;
-import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import kk.pojo.Result;
 import kk.utils.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-
-import java.io.IOException;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @ demoFilter :
+ * @ LoginCheckInterceptor :
  * @ Description:
  */
+
+//自定义拦截器
 @Slf4j
-//@WebFilter(urlPatterns = "/*")
-public class loginCheckFilter implements Filter {
-
-
+@Component
+public class LoginCheckInterceptor implements HandlerInterceptor {
+    //目标资源方法执行前执行。 返回true：放行    返回false：不放行
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        //转换
-        HttpServletRequest req = (HttpServletRequest) servletRequest;
-        HttpServletResponse resp = (HttpServletResponse) servletResponse;
+    public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler) throws Exception {
+
 
         // 1获取url
         String url = req.getRequestURI();
@@ -33,8 +32,7 @@ public class loginCheckFilter implements Filter {
         // 2 判断是否包含login
         if (url.contains("login")) {
             log.info("登录操作，放行。。");
-            filterChain.doFilter(servletRequest, servletResponse);
-            return;
+            return true; //true表示放行
         }
 
         // 3 获取请求头中令牌（token）
@@ -47,7 +45,7 @@ public class loginCheckFilter implements Filter {
             // 转换 对象 -》json ----》阿里巴巴fastJSON
             String notLogin = JSONObject.toJSONString(error);
             resp.getWriter().write(notLogin);
-            return;
+            return false; // 返回false：不放行
         }
 
         // 5 解析token
@@ -60,11 +58,22 @@ public class loginCheckFilter implements Filter {
             // 转换 对象 -》json ----》阿里巴巴fastJSON
             String notLogin = JSONObject.toJSONString(error);
             resp.getWriter().write(notLogin);
-            return;
+            return false;  // 返回false：不放行
         }
         // 放行
         log.info("放行");
-        filterChain.doFilter(servletRequest,servletResponse);
+        return true; //true表示放行
     }
 
+    //目标资源方法执行后执行
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        System.out.println("postHandle ... ");
+    }
+
+    //视图渲染完毕后执行，最后执行
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        System.out.println("afterCompletion .... ");
+    }
 }

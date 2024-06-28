@@ -1,6 +1,7 @@
 package kk.mapper;
 
 import kk.pojo.Emp;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -52,6 +53,19 @@ public interface EmpMapper {
      */
     void update(Emp emp);
 
+    /**
+     * 根据username 和password查询
+     * @param emp 员工
+     * @return
+     */
     @Select("select * from emp where username = #{username} and password = #{password};")
     Emp getByUsernameAndPassword(Emp emp);
+
+    /**
+     * 删除整个部门的员工
+     * @param deptId 部门id
+     */
+    @Delete("delete from emp where  dept_id = #{deptId}")
+    void deleteByDeptId(Integer deptId);
+
 }
