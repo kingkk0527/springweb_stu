@@ -27,8 +27,13 @@ aliyun:
     accessKeySecret: A0euNO8UfUTLwTWXbOTCB6vwIqLD5S
     bucketName: springweb-testkk
 
+# spring 事务管理日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
 # 端口配置
-#server:
+# server:
 #  port: 8888
 # 对象、Map集合
 emp:
