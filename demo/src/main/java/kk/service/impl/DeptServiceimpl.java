@@ -49,8 +49,6 @@ public class DeptServiceimpl implements DeptService {
             int i = 1/0 ;  // 模拟异常
 //        if(true){ throw new Exception("出错啦。。。。");}
             empMapper.deleteByDeptId(id);// 删除部门所有员工
-
-
         } finally { // 无论上面是否执行 finally都执行
             deptLogService.insert(id); // 添加日志
         }

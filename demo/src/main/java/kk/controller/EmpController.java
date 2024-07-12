@@ -1,5 +1,6 @@
 package kk.controller;
 
+import kk.anno.Log;
 import kk.pojo.Emp;
 import kk.pojo.PageBean;
 import kk.pojo.Result;
@@ -52,6 +53,7 @@ public class EmpController {
      * @param ids   路径传入数组
      * @return      成功信息
      */
+    @Log
     @DeleteMapping("/{ids}")
     public Result delete(@PathVariable List<Integer> ids){
         log.info("批量删除操作，ids{}",ids);
@@ -64,6 +66,7 @@ public class EmpController {
      * @param emp   员工类
      * @return      成功信息
      */
+    @Log
     @PostMapping
     public Result insert(@RequestBody Emp emp){
         log.info("新增员工，emp，{}",emp);
@@ -88,6 +91,7 @@ public class EmpController {
      * @param emp  更新员工信息
      * @return 成功
      */
+    @Log
     @PutMapping
     public Result update(@RequestBody Emp emp){
     log.info("更新员工信息， {}",emp);
