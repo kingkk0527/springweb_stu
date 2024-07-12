@@ -16,7 +16,8 @@
 <!--    # 动态更新-->
     <update id="update2">
         update emp
-#         去多余 ,
+        <!--     去多余 , -->
+
         <set>
             <if test="username != null">
                 username=#{username},
@@ -65,6 +66,7 @@
     </select>
     <delete id="deleteByIds">
         delete from emp where id in
+#                      遍历目标         遍历元素   连接符号    间隔符号     结束符号
         <foreach collection="ids" item="id" separator="," open="(" close=")">
             #{id}
         </foreach>
