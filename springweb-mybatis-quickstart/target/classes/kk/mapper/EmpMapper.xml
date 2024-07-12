@@ -47,6 +47,7 @@
         where id = #{id}
     </update>
 
+
     <select id="slectList" resultType="kk.pojo.Emp">
         <include refid="commonnSelect"/>
         # 去多余 and
