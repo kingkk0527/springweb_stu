@@ -1,0 +1,8 @@
+
+# 阿里云oss配置
+aliyun:
+  oss:
+    endpoint: https://oss-cn-chengdu.aliyuncs.com
+    accessKeyId: LTAI5tNoN9Qr1zQRohPbc1X6
+    accessKeySecret: A0euNO8UfUTLwTWXbOTCB6vwIqLD5S
+    bucketName: springweb-testkk

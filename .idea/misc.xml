@@ -8,6 +8,11 @@
         <option value="$PROJECT_DIR$/SpringBoot原理篇/02. bean的管理/springboot-web-config2/pom.xml" />
         <option value="$PROJECT_DIR$/SpringBoot原理篇/02. bean的管理/itheima-utils/itheima-utils/pom.xml" />
         <option value="$PROJECT_DIR$/springweb-mybatis-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot原理篇/03. 自定义starter/aliyun-oss-spring-boot-autoconfigure/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot原理篇/03. 自定义starter/aliyun-oss-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot原理篇/03. 自定义starter/springboot-autoconfiguration-test/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot原理篇/03. 自定义starter/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
