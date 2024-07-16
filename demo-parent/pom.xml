@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.0</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <groupId>kk</groupId>
+  <artifactId>demo-parent</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>demo-parent</name>
+
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!--  集中管理依赖版本-->
+    <jjwt.verson>0.9.1</jjwt.verson>
+    <aliyun-sdk-oss.verson>3.17.4</aliyun-sdk-oss.verson>
+    <jaxb-api.verson>2.3.1</jaxb-api.verson>
+    <activation.verson>1.1.1</activation.verson>
+    <jaxb-runtime.verson>2.3.3</jaxb-runtime.verson>
+  </properties>
+
+<!--  聚合其他模块-->
+  <modules>
+    <module>demo-utils</module>
+    <module>demo-pojo</module>
+    <module>../demo</module>
+  </modules>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
+  </dependencies>
+<!--  集中管理依赖版本-->
+  <dependencyManagement>
+    <dependencies>
+
+      <!--        JWT令牌-->
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt</artifactId>
+        <version>${jjwt.verson}</version>
+      </dependency>
+
+      <!--aliyun -oss- 依赖 -->
+      <dependency>
+        <groupId>com.aliyun.oss</groupId>
+        <artifactId>aliyun-sdk-oss</artifactId>
+        <version>${aliyun-sdk-oss.verson}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>${jaxb-api.verson}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+        <version>${activation.verson}</version>
+      </dependency>
+      <!-- no more than 2.3.3-->
+      <dependency>
+        <groupId>org.glassfish.jaxb</groupId>
+        <artifactId>jaxb-runtime</artifactId>
+        <version>${jaxb-runtime.verson}</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+</project>
